@@ -1,57 +1,107 @@
 // Toast handler
-let toast =(msg) => {
-    let alertbox = document.getElementById("alert");
-    alertbox.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/1/17/Warning.svg' width=25 alt='warning' class='warn-img'> " + msg + " !";
+const toast = (msg) => {
+	const alertbox = document.getElementById("alert");
+	alertbox.innerHTML =
+		"<img src='https://upload.wikimedia.org/wikipedia/commons/1/17/Warning.svg' width=25 alt='warning' class='warn-img'> " +
+		msg +
+		" !";
 	alertbox.style.transform = "translateY(0)";
 	setTimeout(() => {
 		alertbox.style.transform = "translateY(-100px)";
 	}, 3000);
-}
-// Login Button
-document.getElementById("login-btn").addEventListener("click", () => {
-	let mail = document.getElementById("login-mail").value;
-	let pass = document.getElementById("login-pass").value;
-	if (mail === "" || pass.length < 6) {
-        toast("Invalid credentials");
-    }
-    else {
-        // Ajax
-    }
+};
+// Login form
+document.getElementById("login-form").addEventListener("submit", function (e) {
+	e.preventDefault();
+	const phone = document.getElementById("login-phone").value;
+	const pass = document.getElementById("login-pass").value;
+	const formData = new FormData(this);
+	if (phone.length != 10 || isNaN(phone)) {
+		toast("Enter valid phone number");
+	} else if (pass.length < 6) {
+		toast("Invalid password");
+	} else {
+		// Animate login button
+		const btn = document.getElementById("login-btn");
+		btn.disabled = true;
+		btn.innerHTML =
+			"Logging in <span class='spinner-border' role='status' aria-hidden='true' style='height: 1.5rem; width: 1.5rem'></span>";
+		// Fetch API
+		fetch("php/auth.php", {
+			method: "post",
+			body: formData,
+		})
+			.then((response) => {
+				return response.text();
+			})
+			.then((text) => {
+				if (text == "loggedin") {
+					window.location = "dashboard.php";
+				}
+				toast(text);
+				btn.disabled = false;
+				btn.innerHTML = "Login";
+			})
+			.catch((error) => {
+				toast(error);
+				btn.disabled = false;
+				btn.innerHTML = "Login";
+			});
+	}
 });
 // Request account/signup button
-document.getElementById("signup-btn").addEventListener("click", () => {
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
-	let mail = document.getElementById("signup-mail").value;
-    let pass = document.getElementById("signup-pass").value;
-    let cpass = document.getElementById("confirm-pass").value;
-    let terms = document.getElementById("terms");
-	if (name === "" || mail === "") {
-        toast("Check values again");
-    }
-    else if(phone.length != 10 || isNaN(phone)) {
-        toast("Enter valid phone number");
-    }
-    else if(pass.length < 6) {
-        toast("Password must be atleast 6 characters");
-    }
-    else if(pass != cpass) {
-        toast("Password doesn't match");
-    }
-    else if(!terms.checked) {
-        toast("You must agree terms");
-    }
-    else {
-        // Ajax
-    }
+document.getElementById("signup-form").addEventListener("submit", function (e) {
+	e.preventDefault();
+	const name = document.getElementById("name").value;
+	const phone = document.getElementById("phone").value;
+	const pass = document.getElementById("signup-pass").value;
+	const cpass = document.getElementById("confirm-pass").value;
+	const terms = document.getElementById("terms");
+	const formData = new FormData(this);
+	if (name === "") {
+		toast("Check the values again");
+	} else if (phone.length != 10 || isNaN(phone)) {
+		toast("Enter valid phone number");
+	} else if (pass.length < 6) {
+		toast("Password must be atleast 6 characters");
+	} else if (pass != cpass) {
+		toast("Password doesn't match");
+	} else if (!terms.checked) {
+		toast("You must agree terms");
+	} else {
+		// Animate request button
+		const btn = document.getElementById("signup-btn");
+		btn.disabled = true;
+		btn.innerHTML =
+			"Processing <span class='spinner-border' role='status' aria-hidden='true' style='height: 1.5rem; width: 1.5rem'></span>";
+		// Fetch API
+		fetch("php/reg.php", {
+			method: "post",
+			body: formData,
+		})
+			.then((response) => {
+				return response.text();
+			})
+			.then((text) => {
+                toast(text);
+                document.getElementById("signup-form").reset();
+				btn.disabled = false;
+				btn.innerHTML = "Request Account";
+			})
+			.catch((error) => {
+				toast(error);
+				btn.disabled = false;
+				btn.innerHTML = "Request Account";
+			});
+	}
 });
 // Signup panel
-document.getElementById('open-signup').addEventListener("click", () => {
-    document.getElementById('login-panel').style.display = 'none';
-    document.getElementById('signup-panel').style.display = 'block';
+document.getElementById("open-signup").addEventListener("click", () => {
+	document.getElementById("login-panel").style.display = "none";
+	document.getElementById("signup-panel").style.display = "block";
 });
 // Login panel
-document.getElementById('open-login').addEventListener("click", () => {
-    document.getElementById('signup-panel').style.display = 'none';
-    document.getElementById('login-panel').style.display = 'block';
+document.getElementById("open-login").addEventListener("click", () => {
+	document.getElementById("signup-panel").style.display = "none";
+	document.getElementById("login-panel").style.display = "block";
 });
