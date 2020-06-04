@@ -44,12 +44,10 @@
                 <div class="row my-3">  
                     <div class="col-md-5">
                         <form id="v-form">
-                            <input type="text" class="form-control" id="v-name" name="v-name" placeholder=" ">
-                            <label class="h6 mt-4 label" for="v-name">Visitor name</label>
-                            <input type="text" class="form-control" id="v-time" name="v-time" placeholder=" ">
-                            <label class="h6 mt-4 label" for="v-time">Visit date and time</label>
                             <input type="tel" class="form-control" id="v-aadh" name="v-aadh" placeholder=" " maxlength=12>
                             <label class="h6 mt-4 label" for="v-aadh">12 digit aadhar number</label>
+                            <input type="text" class="form-control" id="v-time" name="v-time" placeholder=" ">
+                            <label class="h6 mt-4 label" for="v-time">Visit date and time</label>
                             <button type="submit" class="text-center btn-lg btn btn-primary btn-block my-5" id="v-btn">Add Visitor</button>
                         </form>
                     </div>
