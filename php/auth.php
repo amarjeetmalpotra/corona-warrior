@@ -5,6 +5,10 @@
     if ( !isset($_POST['login-phone'], $_POST['login-pass']) ) {
     	exit('Invalid access method');
     }
+    // Make sure the submitted values are not empty.
+    if (empty($_POST['login-phone']) || empty($_POST['login-pass'])) {
+	    exit('Invalid access method');
+    }
     // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
     if ($stmt = $con->prepare('SELECT id, u_name, u_pass, active FROM users WHERE u_phone = ?')) {
     	// Bind parameters (s = string, i = int, b = blob, etc)
@@ -25,7 +29,6 @@
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['id'] = $id;
                 $_SESSION['name'] = $name;
-                $_SESSION['phone'] = $_POST['login-phone'];
                 echo 'loggedin';
             } else {
                 echo 'Incorrect password';

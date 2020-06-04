@@ -8,11 +8,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Covid Portal | Dashboard</title>
+        <title>Covid Portal | History</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="css/global.css">
     </head>
     <body>
@@ -22,9 +21,9 @@
         <div class="menu shadow" id="menu-bar">
             <a href="./" class="brand">Covid Portal</a>
             <div class="link-wrapper">
-                <a href="dashboard.php" class="current">Home</a>
+                <a href="dashboard.php">Home</a>
                 <a href="profile.php">Profile</a>
-                <a href="history.php">History</a>
+                <a href="history.php" class="current">History</a>
                 <a href="#about">About Us</a>
                 <a href="php/de_auth.php" class="border-bottom-0 current">Logout</a>
             </div>
@@ -40,26 +39,14 @@
             <hr class="mt-5">
         </div>
         <div class="container mt-4 px-5">
-            <div class="h3">Add new visitor</div>
-                <div class="row my-3">  
-                    <div class="col-md-5">
-                        <form id="v-form">
-                            <input type="text" class="form-control" id="v-name" name="v-name" placeholder=" ">
-                            <label class="h6 mt-4 label" for="v-name">Visitor name</label>
-                            <input type="text" class="form-control" id="v-time" name="v-time" placeholder=" ">
-                            <label class="h6 mt-4 label" for="v-time">Visit date and time</label>
-                            <input type="tel" class="form-control" id="v-aadh" name="v-aadh" placeholder=" " maxlength=12>
-                            <label class="h6 mt-4 label" for="v-aadh">12 digit aadhar number</label>
-                            <button type="submit" class="text-center btn-lg btn btn-primary btn-block my-5" id="v-btn">Add Visitor</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="h3">Visitor history</div>
+            <div class="container my-5">
+                Feature under construction 🔧
             </div>
-        </div>    
+        </div>
         <!-- Footer -->
-        <div class="footer"><span class="">&copy; <span id="copy-year"></span> Covid Portal</div>
+        <footer class="footer"><span class="">&copy; <span id="copy-year"></span> Covid Portal</footer>
         <!-- Script section -->
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src="js/global.js"></script>
         <script src="js/user.js"></script>
     </body>

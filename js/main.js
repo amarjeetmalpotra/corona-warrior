@@ -1,15 +1,3 @@
-// Toast handler
-const toast = (msg) => {
-	const alertbox = document.getElementById("alert");
-	alertbox.innerHTML =
-		"<img src='https://upload.wikimedia.org/wikipedia/commons/1/17/Warning.svg' width=25 alt='warning' class='warn-img'> " +
-		msg +
-		" !";
-	alertbox.style.transform = "translateY(0)";
-	setTimeout(() => {
-		alertbox.style.transform = "translateY(-100px)";
-	}, 3000);
-};
 // Login form
 document.getElementById("login-form").addEventListener("submit", function (e) {
 	e.preventDefault();
@@ -37,8 +25,9 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
 			.then((text) => {
 				if (text == "loggedin") {
 					window.location = "dashboard.php";
+				} else {
+					toast(text);
 				}
-				toast(text);
 				btn.disabled = false;
 				btn.innerHTML = "Login";
 			})
@@ -49,7 +38,7 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
 			});
 	}
 });
-// Request account/signup button
+// Request account/signup form
 document.getElementById("signup-form").addEventListener("submit", function (e) {
 	e.preventDefault();
 	const name = document.getElementById("name").value;
@@ -59,7 +48,7 @@ document.getElementById("signup-form").addEventListener("submit", function (e) {
 	const terms = document.getElementById("terms");
 	const formData = new FormData(this);
 	if (name === "") {
-		toast("Check the values again");
+		toast("Enter your name");
 	} else if (phone.length != 10 || isNaN(phone)) {
 		toast("Enter valid phone number");
 	} else if (pass.length < 6) {
