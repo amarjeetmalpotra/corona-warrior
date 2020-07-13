@@ -2,7 +2,7 @@
 .panel {
 	margin: 10vh auto;
 	width: 450px;
-	background-image: url("../img/waves.svg");
+	background-image: url('../img/waves.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -18,16 +18,16 @@
 	0% {
 		opacity: 0.2;
 		transform: translateY(-15px);
-    }
-    30% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(5px);
-    }
-    80% {
-        transform: translateY(0);
-    }
+	}
+	30% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(5px);
+	}
+	80% {
+		transform: translateY(0);
+	}
 	100% {
 		opacity: 1;
 	}

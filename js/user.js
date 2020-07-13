@@ -54,12 +54,9 @@ if (document.getElementById("b-form")) {
 if (document.getElementById("v-form")) {
 	document.getElementById("v-form").addEventListener("submit", function (e) {
 		e.preventDefault();
-		const time = document.getElementById("v-time").value;
 		const aadh = document.getElementById("v-aadh").value;
 		const formData = new FormData(this);
-		if (time === "") {
-			toast("Enter date and time");
-		} else if (aadh.length != 12 || isNaN(aadh)) {
+		if (aadh.length != 12 || isNaN(aadh)) {
 			toast("Enter a valid aadhar number");
 		} else {
 			// Animate add button

@@ -8,11 +8,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Covid Portal | Dashboard</title>
+        <title>Corona Warrior | Dashboard</title>
+        <meta name="description" content="Corona Warrior - a simple approach to victim tracing">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name=”robots” content="index, follow">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="css/global.css">
     </head>
     <body>
@@ -20,13 +24,13 @@
         <div class="alert" id="alert"></div>
         <!-- Navbar -->
         <div class="menu shadow" id="menu-bar">
-            <a href="./" class="brand">Covid Portal</a>
+            <a href="./" class="brand">Corona Warrior</a>
             <div class="link-wrapper">
-                <a href="dashboard.php" class="current">Home</a>
-                <a href="profile.php">Profile</a>
-                <a href="history.php">History</a>
-                <a href="#about">About Us</a>
-                <a href="php/de_auth.php" class="border-bottom-0 current">Logout</a>
+                <a href="dashboard" class="current">Home</a>
+                <a href="profile">Profile</a>
+                <a href="history">History</a>
+                <a href="javascript:void(0);">About Us</a>
+                <a href="php/de_auth" class="border-bottom-0 current">Logout</a>
             </div>
             <div class="menu-toggle" id="menu-toggle">
                 <span class="bar"></span>
@@ -46,8 +50,6 @@
                         <form id="v-form">
                             <input type="tel" class="form-control" id="v-aadh" name="v-aadh" placeholder=" " maxlength=12>
                             <label class="h6 mt-4 label" for="v-aadh">12 digit aadhar number</label>
-                            <input type="text" class="form-control" id="v-time" name="v-time" placeholder=" ">
-                            <label class="h6 mt-4 label" for="v-time">Visit date and time</label>
                             <button type="submit" class="text-center btn-lg btn btn-primary btn-block my-5" id="v-btn">Add Visitor</button>
                         </form>
                     </div>
@@ -55,9 +57,11 @@
             </div>
         </div>    
         <!-- Footer -->
-        <div class="footer"><span class="">&copy; <span id="copy-year"></span> Covid Portal</div>
+        <footer class="footer">
+            &copy; <span id="copy-year"></span> Corona Warrior
+            <span class="float-right">&lt;/&gt; by <a href="https://amarjeetmalpotra.github.io" target="_blank" class="text-white">Amarjeet Malpotra</a></span>
+        </footer>
         <!-- Script section -->
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src="js/global.js"></script>
         <script src="js/user.js"></script>
     </body>

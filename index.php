@@ -1,15 +1,20 @@
 <?php
 session_start();
 if(isset($_SESSION["loggedin"])){
-    header("Location: dashboard.php");
+    header("Location: dashboard");
     exit();
 }
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
     <head>
-        <title>Covid Portal | Home</title>
+        <title>Corona Warrior | Home</title>
+        <meta name="description" content="Corona Warrior - a simple approach to victim tracing">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name=”robots” content="index, follow">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/global.css">
@@ -20,11 +25,12 @@ if(isset($_SESSION["loggedin"])){
         <div class="alert" id="alert"></div>
         <!-- Navbar -->
         <div class="menu shadow" id="menu-bar">
-            <a href="./" class="brand">Covid Portal</a>
+            <a href="./" class="brand">Corona Warrior</a>
             <div class="link-wrapper">
                 <a href="./" class="current">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#support">Support</a>
+                <a href="javascript:void(0);">About Us</a>
+                <a href="privacy-policy">Privacy Policy</a>
+                <a href="javascript:void(0);">Support</a>
             </div>
             <div class="menu-toggle" id="menu-toggle">
                 <span class="bar"></span>
@@ -67,14 +73,17 @@ if(isset($_SESSION["loggedin"])){
                 </div>
                 <div class="form-check form-check-inline mt-5">
                     <input class="form-check-input" type="checkbox" id="terms" name="terms" value="agree">
-                    <label class="form-check-label h6" for="terms">Agree Terms & Conditions</label>
+                    <label class="form-check-label h6" for="terms">Agree our <a href="privacy-policy">Privacy Policy</a></label>
                 </div>
                 <button type="submit" class="text-center btn-lg btn btn-primary btn-block my-4 px-5" id="signup-btn">Request Account</button>
             </form>
             <h6 class="text-center mt-4">Already have an account? <a href="javascript:void(0);" id="open-login">Login</a></h6>  
         </div>
         <!-- Footer -->
-        <footer class="footer"><span class="">&copy; <span id="copy-year"></span> Covid Portal</footer>
+        <footer class="footer">
+            &copy; <span id="copy-year"></span> Corona Warrior
+            <span class="float-right">&lt;/&gt; by <a href="https://amarjeetmalpotra.github.io" target="_blank" class="text-white">Amarjeet Malpotra</a></span>
+        </footer>
         <!-- Script section -->
         <script src="js/global.js"></script> 
         <script src="js/main.js"></script> 

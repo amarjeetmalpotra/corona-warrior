@@ -8,8 +8,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Covid Portal | Profile</title>
+        <title>Corona Warrior | Profile</title>
+        <meta name="description" content="Corona Warrior - a simple approach to victim tracing">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name=”robots” content="index, follow">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/global.css">
@@ -19,13 +24,13 @@
         <div class="alert" id="alert"></div>
         <!-- Navbar -->
         <div class="menu shadow" id="menu-bar">
-            <a href="./" class="brand">Covid Portal</a>
+            <a href="./" class="brand">Corona Warrior</a>
             <div class="link-wrapper">
-                <a href="dashboard.php">Home</a>
-                <a href="profile.php" class="current">Profile</a>
-                <a href="history.php">History</a>
-                <a href="#about">About Us</a>
-                <a href="php/de_auth.php" class="border-bottom-0 current">Logout</a>
+                <a href="dashboard">Home</a>
+                <a href="profile" class="current">Profile</a>
+                <a href="history">History</a>
+                <a href="javascript:void(0);">About Us</a>
+                <a href="php/de_auth" class="border-bottom-0 current">Logout</a>
             </div>
             <div class="menu-toggle" id="menu-toggle">
                 <span class="bar"></span>
@@ -83,7 +88,10 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer class="footer"><span class="">&copy; <span id="copy-year"></span> Covid Portal</footer>
+        <footer class="footer">
+            &copy; <span id="copy-year"></span> Corona Warrior
+            <span class="float-right">&lt;/&gt; by <a href="https://amarjeetmalpotra.github.io" target="_blank" class="text-white">Amarjeet Malpotra</a></span>
+        </footer>
         <!-- Script section -->
         <script src="js/global.js"></script>
         <script src="js/user.js"></script>
